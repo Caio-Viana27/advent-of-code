@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(20, 19, 19);
+    text-align: center;
+}
+#title {
+    font-weight: bold;
+    color:rgb(27, 228, 20);
+}
+#christmasTree {
+    font-weight: bold;
+    color:rgb(10, 139, 5);
+}
+#christmasTree>p {
+    margin: 0;
+}
+#star {
+    font-size: 2.0vw;
+    color: rgb(220, 243, 9);
+}
+.blue {
+    color:rgb(0, 47, 255);
+}
+.red {
+    color: rgb(245, 4, 4);
+}
+.yellow {
+    color: rgb(250, 250, 25);
+}
+.log {
+    color: rgb(102, 56, 13);
+    font-size: 1.5vw;
+}
