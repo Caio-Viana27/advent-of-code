@@ -5,4 +5,4 @@ All my solutions to advent of code challenges can be found here, feel free to lo
 
 The purpose of this repo is to have fun while coding and learning new languages
 
-SPOILER ALERT the answers to the chalenges can be found commented somewhere in the code, so if you didn't solve yourself be carefull!
+The answers to the challenges are unique to every person, so don't worry if you see the answer to my input, because yours is gonna be different!
