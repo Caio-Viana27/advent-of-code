@@ -7,4 +7,4 @@ The purpose of this repo is to have fun while coding and learning new languages
 
 The answers to the challenges are unique to every person, so don't worry if you see the answer to my input, because yours is gonna be different!
 
-Clone this repo or the code in the .html to see a nice christmas tree ;)
+Clone this repo or the code in the .html && .css to see a nice christmas tree ;)
