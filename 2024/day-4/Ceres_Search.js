@@ -139,7 +139,6 @@ MMXMSSMSXSXMAXMMXMASMMSAAAASAMXAAAAXXXMMSMASASAMXAASASMSMSXSMSAMMMAMMMAMAMASXMMM
 XSAMXMAAMSAMXMAAXMASAASMXMMMSMMSMSMSAASAASXMMXMASMMMASAAAXAAAMAMAXAAAMASXMASXAAXSAMXAAXMASASASXAMMMAAAXSMASXSAMXSMMAMAAAXAMSMSMMASAMXMAAAASM
 SSMSAMXMASXMSSXMXSAMMMSXAXAXXXMAXXAXXSMSXSXXXXMASXSMXMMMSMMMXMASXSMSSSMSMMSSXSMMSAMMMSMSXMXSMMMXXXSMMMSXSMXXMXMMMXXAMSMSMXMXXXMSSSXSSSMMSSMA
 `;
-
 const test =
 `MMMSXXMASM
 MSAMXMSMSA
@@ -165,7 +164,6 @@ MXMXAXMASX`;
 
 const TARGET_WORD = "XMAS";
 const REVERSED_TARGET_WORD = "SAMX";
-const WORD = "MAS";
 
 function getInputLines(input) {
     const matrix = input.split("\n");
@@ -237,7 +235,7 @@ function numberOfOccurrences(lines = [], TARGET_WORD, REVERSED_TARGET_WORD) {
     return occurrences;
 }
 
-function X_MAS(matrix = [], WORD) {
+function X_MAS(matrix = []) {
     let occurrences = 0;
     console.log(matrix)
     for (let i = 1; i < matrix.length - 1; i++) {
@@ -253,6 +251,7 @@ function X_MAS(matrix = [], WORD) {
 }
 
 console.log(numberOfOccurrences(getAllLines(input), TARGET_WORD, REVERSED_TARGET_WORD));
-console.log(X_MAS(getInputLines(input), WORD));
+console.log(X_MAS(getInputLines(input)));
 
 // first problem answer --> 2591
+// second problem answer --> 1880
