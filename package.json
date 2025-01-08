@@ -1,0 +1,17 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "Marry christmas y'all! hope you're having a nice time",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security"
+  }
+}

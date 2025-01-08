@@ -7,4 +7,5 @@ The purpose of this repo is to have fun while coding and learning new languages
 
 The answers to the challenges are unique to every person, so don't worry if you see the answer to my input, because yours is gonna be different!
 
-Clone this repo or the code in the .html && .css to see a nice christmas tree ;)
+Clone this repo, go to directory advent-of-code/src, and type "node app.js" in the terminal, then connect to 
+"localhost:3000" in the browser to see a nice christmas tree
