@@ -5,6 +5,7 @@ import calculateUnsafeReports from '../2024/day-2/redNosedReports.mjs';
 import searchCorruptedMemory from '../2024/day-3/mullItOver.mjs';
 import ceresSearch from '../2024/day-4/ceresSearch.mjs';
 import printQueue from '../2024/day-5/printQueue.mjs';
+import guardGallivant from '../2024/day-6/guardGallivant.mjs';
 
 const PORT = 3000;
 const app = express();
@@ -16,17 +17,20 @@ app.get('/', (req, res) => {
     res.end();
 });
 
-fs.readFile('../2024/day-5/input.txt', 'utf-8', (err, input) => {
+fs.readFile('../2024/day-6/input.txt', 'utf-8', (err, input) => {
     if (err) {
-        console.log('error opening the file');
+        console.log('Error opening the file');
         return;
-    } else {
-        //console.log('day 1 ', historianHysteria(input));
-        //console.log('day 2 ', calculateUnsafeReports(input));
-        //console.log('day 3 ', searchCorruptedMemory(input));
-        //console.log('day 4 ', ceresSearch(input));
-        console.log('day 5 ', printQueue(input));
     }
+    console.time('time');
+    const output = guardGallivant(input);
+    console.timeEnd('time');
+    fs.writeFile('../2024/day-6/output.txt', output, err => {
+        if (err) {
+          console.error('Error writing file');
+          return;
+        }
+    });
 });
 
 app.listen(PORT, () => {
