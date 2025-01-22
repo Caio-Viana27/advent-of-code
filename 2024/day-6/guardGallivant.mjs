@@ -15,8 +15,12 @@ const direction = [
 ];
 
 function getUniquePositions(map) {
-    const positions = new Set();
+    const loopPositions = new Set();
     const guard = findGuardPosition(map);
+    const start = {
+        x: guard.x,
+        y: guard.y,
+    };
 
     let current = 0;
     while (true) {
@@ -28,45 +32,49 @@ function getUniquePositions(map) {
         }
         if (map[y][x] === '#') {
             current = (current + 1) % 4;
+            continue;
         }
-        else {
-            if(foundLoop(map, guard, current)) {
-                if (positions.add(`${y},${x}`)) {
-                    map[y][x] = 'O';
-                }
+        if (map[y][x] !== 'O') {
+            map[y][x] = '#';
+            if (foundLoop(map, start)) {
+                loopPositions.add(`${y},${x}`);
+                map[y][x] = 'O';
             }
-            guard.y = y;
-            guard.x = x;
+            else {
+                map[y][x] = '.';
+            }
         }
+        guard.y = y;
+        guard.x = x;
     }
-    console.log(positions.size);
+    console.log(loopPositions.size);
     return createMap(map);
 }
 
-function foundLoop(map, initialPosition, prev) {
-    const visitedPositions = new Set();
+function foundLoop(map, start) {
+    const visited = new Set();
     const guard = {
-        y: initialPosition.y,
-        x: initialPosition.x,
+        y: start.y,
+        x: start.x,
     };
-    visitedPositions.add(`${initialPosition.y},${initialPosition.x},${prev}`);
 
-    let current = (prev + 1) % 4;
+    let currentDirection = 0;
     while (true) {
-        let y = guard.y + direction[current].dy;
-        let x = guard.x + direction[current].dx;
-
-        const state = `${y},${x},${current}`;
-        if (visitedPositions.has(state)) {
+        const state = `${guard.y},${guard.x},${currentDirection}`;
+        if (visited.has(state)) {
             return true;
         }
-        
+
+        let y = guard.y + direction[currentDirection].dy;
+        let x = guard.x + direction[currentDirection].dx;
+
         if (y >= map.length || y < 0 || x >= map[y].length || x < 0) {
             return false;
         }
+
         if (map[y][x] === '#') {
-            visitedPositions.add(state);
-            current = (current + 1) % 4;
+            visited.add(state);
+            currentDirection = (currentDirection + 1) % 4;
         }
         else {
             guard.y = y;
@@ -96,8 +104,9 @@ function createMap(map) {
 
 // first problem answer 4964
 // second problem answer 1740
+// the solution bellow is a worst version, it takes roughtly 15 seconds of computing, mine takes 2.3 soconds
 
-/* const detectInfiniteLoop = (grid, startX, startY, startDirection) => {
+/* const detectInfiniteLoop = (grid, startX, startY, startDirection, positions) => {
     const directions = [
       { dx: -1, dy: 0 }, // Up
       { dx: 0, dy: 1 }, // Right
@@ -119,6 +128,7 @@ function createMap(map) {
 
       // If we have already visited this state, we are in an infinite loop
       if (visited.has(state)) {
+        positions.add(state);
         return true;
       }
 
@@ -153,11 +163,12 @@ const getStartingPosition = (grid) => {
     }
 };
 
-export default function guardGallivant(data) {
+export default function workingGuardGallivant(data) {
       const grid = data.split("\n").map((row) => row.split(""));
     
       const [startX, startY] = getStartingPosition(grid);
       const startDirection = 0;
+      const positions = new Set();
     
       const rows = grid.length;
       const cols = grid[0].length;
@@ -172,7 +183,7 @@ export default function guardGallivant(data) {
           grid[i][j] = "#";
     
           // Check if adding this obstacle causes an infinite loop
-          if (detectInfiniteLoop(grid, startX, startY, startDirection)) {
+          if (detectInfiniteLoop(grid, startX, startY, startDirection, positions)) {
             count++;
           }
     
@@ -181,5 +192,5 @@ export default function guardGallivant(data) {
         }
       }
       console.log({ part2: count });
-      return '';
+      return positions;
 } */
