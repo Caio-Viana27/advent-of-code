@@ -1,5 +1,3 @@
-import { constants } from "node:perf_hooks";
-
 export default function resonantCollinearity(input) {
     return countAntinodes(input);
 }
