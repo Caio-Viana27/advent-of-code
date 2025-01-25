@@ -104,7 +104,7 @@ function createMap(map) {
 
 // first problem answer 4964
 // second problem answer 1740
-// the solution bellow is a worst version, it takes roughtly 15 seconds of computing, mine takes 2.3 soconds
+// the solution below is a worst version, it takes roughtly 15 seconds of computing, mine takes 2.3 seconds
 
 /* const detectInfiniteLoop = (grid, startX, startY, startDirection, positions) => {
     const directions = [
