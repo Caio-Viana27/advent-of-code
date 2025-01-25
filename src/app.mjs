@@ -7,6 +7,7 @@ import ceresSearch from '../2024/day-4/ceresSearch.mjs';
 import printQueue from '../2024/day-5/printQueue.mjs';
 import guardGallivant from '../2024/day-6/guardGallivant.mjs';
 import bridgeRepair from '../2024/day-7/bridgeRepair.mjs';
+import resonantCollinearity from '../2024/day-8/resonantCollinearity.mjs';
 
 const PORT = 3000;
 const app = express();
@@ -18,15 +19,15 @@ app.get('/', (req, res) => {
     res.end();
 });
 
-fs.readFile('../2024/day-7/input.txt', 'utf-8', (err, input) => {
+fs.readFile('../2024/day-8/input.txt', 'utf-8', (err, input) => {
     if (err) {
         console.log('Error opening the file');
         return;
     }
     console.time('time');
-    const output = bridgeRepair(input);
+    const output = resonantCollinearity(input);
     console.timeEnd('time');
-    fs.writeFile('../2024/day-7/output.txt', output, err => {
+    fs.writeFile('../2024/day-8/output.txt', output, err => {
         if (err) {
           console.error('Error writing file');
           return;
